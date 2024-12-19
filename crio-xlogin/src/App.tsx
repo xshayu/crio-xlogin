@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 
 const XLogin = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -8,11 +8,8 @@ const XLogin = () => {
     const formData = new FormData(e.currentTarget);
     const username = formData.get('username') as string;
     const password = formData.get('password') as string;
-
-    console.log({username, password});
     
     if (username === 'user' && password === 'password') {
-      console.log('logged in');
       setLoggedIn(true);
     }
   };
