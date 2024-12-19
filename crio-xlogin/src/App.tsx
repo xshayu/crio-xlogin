@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
 
 const XLogin = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(-1);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -10,8 +10,8 @@ const XLogin = () => {
     const password = formData.get('password') as string;
     
     if (username === 'user' && password === 'password') {
-      setLoggedIn(true);
-    }
+      setLoggedIn(1);
+    } else setLoggedIn(0);
   };
 
   return (
@@ -20,6 +20,9 @@ const XLogin = () => {
       !loggedIn ?
       <form onSubmit={handleSubmit}>
         <h1>Login Page</h1>
+          {
+            loggedIn == 0 && <p>Invalid username or password</p>
+          }
           <div>
             <label htmlFor="username">Username</label>
             <input
