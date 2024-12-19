@@ -17,7 +17,7 @@ const XLogin = () => {
   return (
     <main style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100dvw'}}>
     {
-      !loggedIn ?
+      loggedIn < 1 ?
       <form onSubmit={handleSubmit}>
         <h1>Login Page</h1>
           {
